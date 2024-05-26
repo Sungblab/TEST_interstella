@@ -1,57 +1,75 @@
 .container {
-    margin: 40px auto;
-    max-width: 1200px;
-    padding: 0 20px;
-  }
-  
-  .home {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 60px;
-  }
-  
-  .purpose {
-    width: 50%;
-    padding: 30px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .purpose h2 {
-    margin-bottom: 20px;
-  }
-  
-  .purpose p {
-    margin-bottom: 15px;
-  }
-  
-  .image {
-    width: 45%;
-    text-align: center;
-  }
-  
-  .image img {
-    max-width: 100%;
-    border-radius: 10px;
-  }
-  
-  .simulation {
-    margin-bottom: 60px;
-  }
-  
-  .description {
-    padding: 30px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    text-align: center;
-  }
-  
-  .description h2 {
-    margin-bottom: 20px;
-  }
-  
-  .description p {
-    margin-bottom: 15px;
-  }
+  margin: 40px auto;
+  max-width: 1400px;
+  padding: 10px 20px 20px;
+  border-radius: 10px;
+  background: #00b4db; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.purpose {
+  width: 80%;
+  padding: 30px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.purpose h2 {
+  margin-bottom: 20px;
+  font-size: 2.8rem;
+  font-weight: 400;
+}
+
+.purpose p {
+  margin-bottom: 15px;
+}
+
+.image {
+  width: 45%;
+  text-align: center;
+}
+
+.image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.simulation {
+  margin-bottom: 60px;
+}
+
+.description {
+  padding: 30px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.description h2 {
+  margin-bottom: 20px;
+  font-size: 2.8rem;
+  font-weight: 400;
+}
+
+.description p {
+  margin-bottom: 15px;
+}

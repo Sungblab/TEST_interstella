@@ -1,36 +1,53 @@
 .container {
-    margin: 40px auto;
-    max-width: 1200px;
-    padding: 0 20px;
-  }
-  
-  .simulation {
-    text-align: center;
-  }
-  
-  .simulation img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  .controls {
-    margin-bottom: 20px;
-  }
-  
-  .controls label {
-    margin-right: 10px;
-  }
-  
-  .ages {
-    font-size: 18px;
-  }
-  
-  .ages p {
-    margin-bottom: 10px;
-  }
-  .simulation-image {
-    position: relative;
+  margin: 40px auto;
+  max-width: 1400px;
+  padding: 10px 20px 20px;
+  border-radius: 10px;
+  background: #00b4db; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.simulation {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 2.5rem;
+}
+.simulation img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls label {
+  margin-right: 10px;
+}
+
+.ages {
+  font-size: 18px;
+}
+
+.ages p {
+  margin-bottom: 10px;
+}
+.simulation-image {
+  position: relative;
   width: 100%;
   max-width: 800px;
   height: 400px;
@@ -41,64 +58,66 @@
   overflow: hidden;
 }
 .earth {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    width: 100px;
-    height: 100px;
-    background-color: #00a8ff;
-    border-radius: 50%;
-  }
-  
-  .spaceship {
-    position: absolute;
-    bottom: 150px;
-    left: 50px;
-    width: 70px;
-    height: 40px;
-    background-color: #fff;
-    border: 2px solid #333;
-    transform: rotate(-45deg);
-  }
-  
-  .spaceship:before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 20px solid #fff;
-    transform: translateX(-50%);
-  }
-  
-  .spaceship:after {
-    content: "";
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-top: 20px solid #fff;
-    transform: translateX(-50%);
-  }
-  
-  .character-info {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
-  }
-  
-  .daughter, .father {
-    text-align: center;
-  }
-  
-  .daughter img, .father img {
-    width: 150px;
-    height: auto;
-    margin-bottom: 10px;
-  }
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 100px;
+  height: 100px;
+  background-color: #00a8ff;
+  border-radius: 50%;
+}
+
+.spaceship {
+  position: absolute;
+  bottom: 150px;
+  left: 50px;
+  width: 70px;
+  height: 40px;
+  background-color: #fff;
+  border: 2px solid #333;
+  transform: rotate(-45deg);
+}
+
+.spaceship:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #fff;
+  transform: translateX(-50%);
+}
+
+.spaceship:after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 20px solid #fff;
+  transform: translateX(-50%);
+}
+
+.character-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.daughter,
+.father {
+  text-align: center;
+}
+
+.daughter img,
+.father img {
+  width: 150px;
+  height: auto;
+  margin-bottom: 10px;
+}

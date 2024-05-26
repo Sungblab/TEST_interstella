@@ -1,51 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>특수상대성 이론 시간 지연 실험 - 시뮬레이션</title>
-  <link rel="stylesheet" href="/style/style.css">
-  <link rel="stylesheet" href="/style/simulation-style.css">
-</head>
-<body>
-  <header>
-    <h1>특수상대성 이론 시간 지연 실험</h1>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="/index.html">홈</a></li>
-      <li><a href="/theory.html">이론 설명</a></li>
-      <li><a href="/simulation.html">시뮬레이션</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>특수상대성 이론 시간 지연 실험 - 시뮬레이션</title>
+    <link rel="stylesheet" href="/style/style.css" />
+    <link rel="stylesheet" href="/style/simulation-style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>특수상대성 이론 시간 지연 실험</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/index.html">홈</a></li>
+        <li><a href="/theory.html">이론 설명</a></li>
+        <li><a href="/simulation.html">시뮬레이션</a></li>
+      </ul>
+    </nav>
 
-  <div class="container">
-    <h2>시뮬레이션</h2>
-    <div class="simulation">
-      <div class="simulation-image">
-        <!-- 시뮬레이션 그림 추가 -->
-      </div>
-      <div class="controls">
-        <label for="speed">우주선 속도:</label>
-        <input type="range" id="speed" min="0" max="100" step="1" value="0">
-        <span id="speed-value">0</span>
-        <button id="start-button">실행</button>
-      </div>
-      <div class="character-info">
-        <div class="daughter">
-          <h3>우주선에 탄 딸</h3>
-          <img id="daughter-image" src="/images/daughter-young.jpg" alt="Daughter">
-          <p>나이: <span id="daughter-age">5</span>세</p>
+    <div class="container">
+      <h2>시뮬레이션</h2>
+      <div class="simulation">
+        <div class="simulation-image">
+          <!-- 시뮬레이션 그림 추가 -->
         </div>
-        <div class="father">
-          <h3>지구에 사는 아빠</h3>
-          <img id="father-image" src="/images/father-young.jpg" alt="Father">
-          <p>나이: <span id="father-age">30</span>세</p>
+        <div class="controls">
+          <label for="speed">우주선 속도:</label>
+          <input type="range" id="speed" min="0" max="100" step="1" value="0" />
+          <span id="speed-value">0</span>
+          <button id="start-button">실행</button>
+        </div>
+        <div class="character-info">
+          <div class="daughter">
+            <h3>우주선에 탄 딸</h3>
+            <img
+              id="daughter-image"
+              src="/images/daughter-young.jpg"
+              alt="Daughter"
+            />
+            <p>나이: <span id="daughter-age">5</span>세</p>
+          </div>
+          <div class="father">
+            <h3>지구에 사는 아빠</h3>
+            <img
+              id="father-image"
+              src="/images/father-young.jpg"
+              alt="Father"
+            />
+            <p>나이: <span id="father-age">30</span>세</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="/scripts/simulation.js"></script>
-</body>
+    <script src="/scripts/simulation.js"></script>
+  </body>
 </html>

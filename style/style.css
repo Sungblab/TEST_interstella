@@ -1,66 +1,99 @@
+.jua-regular {
+  font-family: "Jua", sans-serif;
+  /* font-weight: 400;
+  font-style: normal; */
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  
-  header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  nav { 
-    background: #2ba0db;
-    text-align: center;
-     }
+  margin: 0;
+  padding: 0;
+  font-family: "Jua", sans-serif;
+}
 
-  nav ul {
-      font-size: 0;
-      margin: 0;
-      padding: 0;
-      display: inline-block;
-  }
+h1 {
+  font-weight: 400;
+}
 
-  nav ul li {
-      display: inline-block;
-      position: relative;
-  }
+header {
+  text-align: center;
+}
 
-  nav ul li a {
-      color: #fff;
-      display: block;
-      font-size: 14px;
-      padding: 15px 14px;
-      transition: 0.3s linear;
-  }
+nav {
+  background: #00b4db; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  nav ul li:hover { background: #126d9b; }
+  text-align: center;
+  margin: auto;
+  margin-left: 14rem; /* 왼쪽 여백 추가 */
+  margin-right: 14rem; /* 오른쪽 여백 추가 */
+  border-radius: 10px;
+}
 
-  nav ul li ul {
-      border-bottom: 5px solid #2ba0db;
-      display: none;
-      position: absolute;
-      width: 250px;
-  }
+nav ul {
+  font-size: 0;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
 
-  nav ul li ul li {
-      border-top: 1px solid #444;
-      display: block;
-  }
+nav ul li {
+  display: inline-block;
+  position: relative;
+}
 
-  nav ul li ul li:first-child { border-top: none; }
+nav ul li a {
+  color: #000000;
+  display: block;
+  font-size: 25px;
+  padding: 15px 14px;
+  transition: 0.3s linear;
+}
 
-  nav ul li ul li a {
-      background: #373737;
-      display: block;
-      padding: 10px 14px;
-  }
+nav ul li:hover {
+  background: #126d9b;
+}
 
-  nav ul li ul li a:hover { background: #126d9b; }
+nav ul li ul {
+  border-bottom: 5px solid #2ba0db;
+  display: none;
+  position: absolute;
+  width: 250px;
+}
 
-  nav .fa.fa-angle-down { margin-left: 6px; }
-  
-  
-  
+nav ul li ul li {
+  border-top: 1px solid #444;
+  display: block;
+}
+
+nav ul li ul li:first-child {
+  border-top: none;
+}
+
+nav ul li ul li a {
+  background: #373737;
+  display: block;
+  padding: 10px 14px;
+}
+
+nav ul li ul li a:hover {
+  background: #126d9b;
+}
+
+nav .fa.fa-angle-down {
+  margin-left: 6px;
+}
+
+footer {
+  text-align: center;
+  font-size: 1.3rem;
+  padding-bottom: 1.5rem;
+}

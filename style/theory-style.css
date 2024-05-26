@@ -1,33 +1,57 @@
 .container {
-    margin: 40px auto;
-    max-width: 1200px;
-    padding: 0 20px;
-  }
-  
-  .theory {
-    margin-top: 30px;
-  }
-  
-  .special-relativity, .michelson-morley {
-    margin-bottom: 40px;
-    padding: 30px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-  }
-  
-  .special-relativity h3, .michelson-morley h3 {
-    margin-bottom: 20px;
-  }
-  
-  .special-relativity p, .michelson-morley p {
-    margin-bottom: 15px;
-  }
-  
-  .special-relativity ol {
-    margin-left: 20px;
-    margin-bottom: 15px;
-  }
+  margin: 40px auto;
+  max-width: 1400px;
+  border-radius: 10px;
+  padding: 10px 20px 20px;
+  background: #00b4db; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
-  h2 {
-    text-align: center;
-  }
+.theory {
+  margin-top: 30px;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
+.special-relativity,
+.michelson-morley {
+  margin-bottom: 40px;
+  padding: 30px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+.special-relativity h3,
+.michelson-morley h3 {
+  margin-bottom: 20px;
+}
+
+.special-relativity p,
+.michelson-morley p {
+  margin-bottom: 15px;
+}
+
+.special-relativity ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 2rem;
+}
+
+h3 {
+  font-weight: lighter;
+  font-size: 2rem;
+}
