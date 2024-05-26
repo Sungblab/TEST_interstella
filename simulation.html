@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
   </head>
   <body>
     <header>
@@ -26,40 +27,187 @@
     </nav>
 
     <div class="container">
-      <h2>시뮬레이션</h2>
-      <div class="simulation">
-        <div class="simulation-image">
-          <!-- 시뮬레이션 그림 추가 -->
-        </div>
-        <div class="controls">
-          <label for="speed">우주선 속도:</label>
-          <input type="range" id="speed" min="0" max="100" step="1" value="0" />
-          <span id="speed-value">0</span>
-          <button id="start-button">실행</button>
-        </div>
-        <div class="character-info">
-          <div class="daughter">
-            <h3>우주선에 탄 딸</h3>
-            <img
-              id="daughter-image"
-              src="/images/daughter-young.jpg"
-              alt="Daughter"
-            />
-            <p>나이: <span id="daughter-age">5</span>세</p>
-          </div>
-          <div class="father">
-            <h3>지구에 사는 아빠</h3>
-            <img
-              id="father-image"
-              src="/images/father-young.jpg"
-              alt="Father"
-            />
-            <p>나이: <span id="father-age">30</span>세</p>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="explanation">
+        <h3>실제 이론 vs 시뮬레이션 코드</h3>
+        <p>
+          이 시뮬레이션은 특수 상대성 이론과 일반 상대성 이론의 기본 개념을
+          시각적으로 표현한 것입니다. 하지만 실제 이론에서 사용되는 공식과
+          시뮬레이션에서 사용된 공식에는 차이가 있습니다.
+        </p>
 
-    <script src="/scripts/simulation.js"></script>
+        <h3>특수 상대성 이론</h3>
+        <p>실제 이론: 시간 팽창 효과는 다음 공식으로 계산됩니다.</p>
+        <p>t' = t / √(1 - v²/c²)</p>
+        <p>
+          t'은 움직이는 물체에서의 시간, t는 정지한 관찰자에서의 시간, v는
+          물체의 속도, c는 빛의 속도입니다.
+        </p>
+
+        <p>시뮬레이션: 시간 팽창 효과를 다음과 같이 근사했습니다.</p>
+        <p>fatherAge += 0.02 / √(1 - speed²)</p>
+        <p>
+          speed는 빛의 속도에 대한 우주선의 속도 비율입니다 (0부터 1 사이의 값).
+        </p>
+
+        <h3>일반 상대성 이론</h3>
+        <p>실제 이론: 중력에 의한 시간 지연 효과는 다음 공식으로 계산됩니다.</p>
+        <p>t' = t * √(1 - 2GM/rc²)</p>
+        <p>
+          t'은 중력장 근처에서의 시간, t는 중력장에서 멀리 떨어진 곳에서의 시간,
+          G는 중력 상수, M은 질량, r은 중력 중심으로부터의 거리, c는 빛의
+          속도입니다.
+        </p>
+
+        <p>
+          시뮬레이션: 중력에 의한 시간 지연 효과를 다음과 같이 근사했습니다.
+        </p>
+        <p>timeDelayFactor = 1 - (1 / (1 + (distanceToGargantua / 100)²))</p>
+        <p>distanceToGargantua는 가르강튀아 행성까지의 픽셀 단위 거리입니다.</p>
+
+        <p>
+          이 시뮬레이션은 교육 목적으로 제작되었으며, 실제 이론의 복잡한 공식을
+          단순화하여 표현하였습니다. 시뮬레이션에서 사용된 공식은 실제 이론과
+          개념적으로 유사하지만, 정확한 물리적 계산을 위해서는 실제 공식을
+          사용해야 합니다.
+        </p>
+      </div>
+      <h2>Time Dilation Simulation</h2>
+      <div class="simulation" id="simulation"></div>
+      <div class="controls">
+        <div id="speed-slider"></div>
+        <div id="start-button"></div>
+        <div id="reset-button"></div>
+      </div>
+      <script>
+        let fatherAge = 35;
+        let daughterAge = 10;
+        let speed = 0;
+        let speedSlider;
+        let fatherX = 50;
+        let fatherY = 200;
+        let daughterX = 50;
+        let daughterY = 400;
+        let spaceshipX = 50;
+        let spaceshipY = 200;
+        let gargantua;
+        let earth;
+        let startButton;
+        let resetButton;
+        let started = false;
+        let arrivedAtGargantua = false;
+
+        function setup() {
+          let canvas = createCanvas(1200, 600);
+          canvas.parent("simulation");
+          speedSlider = createSlider(0, 100, 90);
+          speedSlider.parent("speed-slider");
+          startButton = createButton("Start");
+          startButton.parent("start-button");
+          startButton.mousePressed(startSimulation);
+          resetButton = createButton("Reset");
+          resetButton.parent("reset-button");
+          resetButton.mousePressed(resetSimulation);
+          gargantua = new Planet(
+            1000,
+            300,
+            100,
+            "Gargantua",
+            color(255, 165, 0)
+          );
+          earth = new Planet(50, 300, 50, "Earth", color(0, 0, 255));
+        }
+
+        function draw() {
+          background(220);
+          speed = speedSlider.value() / 100;
+          textSize(16);
+          fill(0);
+          text("Speed: " + speed + "c", 10, 30);
+
+          earth.display();
+          gargantua.display();
+
+          fill(200);
+          rect(spaceshipX, spaceshipY, 50, 20);
+          fill(0);
+          textSize(14);
+          text("Spaceship", spaceshipX, spaceshipY - 10);
+
+          fill(255, 0, 0);
+          ellipse(fatherX, fatherY, 30, 30);
+          fill(0);
+          textSize(14);
+          text(
+            "Father (" + fatherAge.toFixed(1) + " years)",
+            fatherX,
+            fatherY - 20
+          );
+
+          fill(0, 255, 0);
+          ellipse(daughterX, daughterY, 30, 30);
+          fill(0);
+          textSize(14);
+          text(
+            "Daughter (" + daughterAge.toFixed(1) + " years)",
+            daughterX,
+            daughterY - 20
+          );
+
+          if (started) {
+            if (!arrivedAtGargantua && spaceshipX < gargantua.x) {
+              spaceshipX += 2;
+              fatherX += 2;
+              let distanceToGargantua = gargantua.x - spaceshipX;
+              let timeDelayFactor =
+                1 - 1 / (1 + Math.pow(distanceToGargantua / 100, 2));
+              fatherAge +=
+                (0.02 * timeDelayFactor) / Math.sqrt(1 - speed * speed);
+              daughterAge += 0.1;
+            } else if (spaceshipX >= gargantua.x) {
+              arrivedAtGargantua = true;
+            }
+
+            if (arrivedAtGargantua && spaceshipX > earth.x) {
+              spaceshipX -= 2;
+              fatherX -= 2;
+              fatherAge += 0.02 / Math.sqrt(1 - 0.9 * 0.9);
+              daughterAge += 0.1;
+            }
+          }
+        }
+
+        function startSimulation() {
+          started = true;
+        }
+
+        function resetSimulation() {
+          started = false;
+          arrivedAtGargantua = false;
+          fatherAge = 35;
+          daughterAge = 10;
+          spaceshipX = 50;
+          fatherX = 50;
+        }
+
+        class Planet {
+          constructor(x, y, r, name, col) {
+            this.x = x;
+            this.y = y;
+            this.r = r;
+            this.name = name;
+            this.col = col;
+          }
+
+          display() {
+            fill(this.col);
+            ellipse(this.x, this.y, this.r, this.r);
+            fill(0); // 텍스트 색상을 검정색으로 변경
+            textSize(16);
+            text(this.name, this.x, this.y - this.r / 2 - 10);
+          }
+        }
+      </script>
+    </div>
+    <footer>@developed by Jiyeon, Semin</footer>
   </body>
 </html>
